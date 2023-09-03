@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="div_clock">
-        <div class="div_num">
+        <div>
             <div class="row">
                 <svg width="106" height="106" viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="C0_0">
@@ -634,7 +634,7 @@
                 </svg>                       
             </div>
         </div>
-        <div class="div_num">
+        <div>
             <div class="row">
                 <svg width="106" height="106" viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="C1_0">
@@ -1261,7 +1261,7 @@
                                         
             </div>
         </div>
-        <div class="div_num">
+        <div>
             <div class="row">
                 <svg width="106" height="106" viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="C2_0">
@@ -1887,7 +1887,7 @@
                 </svg>                        
             </div>
         </div>
-        <div class="div_num">
+        <div>
             <div class="row">
                 <svg width="106" height="106" viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="C3_0">
@@ -2513,7 +2513,7 @@
                 </svg>                     
             </div>
         </div>
-        <div class="div_num">
+        <div>
             <div class="row">
                 <svg width="106" height="106" viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="C4_0">
@@ -3142,7 +3142,7 @@
                                         
             </div>
         </div>
-        <div class="div_num">
+        <div>
             <div class="row">
                 <svg width="106" height="106" viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="C5_0">
@@ -4046,37 +4046,30 @@
         }
     }
 
-
-    
     // Funktion zur Aktualisierung der aktuellen Zeit im <p>-Tag
     function updateCurrentTime() {
         var currentTime = new Date();
         var hours = currentTime.getHours();
         var minutes = currentTime.getMinutes();
-        var seconds = currentTime.getSeconds();
-        
-        h0 = Math.floor(hours/10)
-        h1 = hours % 10
-        m0 = Math.floor(minutes/10)
-        m1 = minutes % 10
-        s0 = Math.floor(seconds/10)
-        s1 = seconds % 10
+        var seconds = currentTime.getSeconds()+1;
+        if(seconds == 60) {
+            seconds = 0
+        }
+        // +1 und if 60 -> 0 damit das mehr on Time ist ...
 
-        console.log(h0+h1 +':'+m0+m1+':'+s0+s1)
+        hours = (hours < 10 ? "0" : "") + hours;
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
         
-        drawNumber(0, Math.floor(hours/10))
-        drawNumber(1, Math.floor(hours/10))
-        drawNumber(2, Math.floor(minutes/10))
-        drawNumber(3, Math.floor(minutes/10))
-        drawNumber(4, Math.floor(seconds/10))
-        drawNumber(5, Math.floor(seconds/10))
+        drawNumber(0, parseInt(hours[0],10))
+        drawNumber(1, parseInt(hours[1],10))
+        drawNumber(2, parseInt(minutes[0],10))
+        drawNumber(3, parseInt(minutes[1],10))
+        drawNumber(4, parseInt(seconds[0],10))
+        drawNumber(5, parseInt(seconds[1],10))
     }
     updateCurrentTime();
     setInterval(updateCurrentTime, 1000);
-
-
-
-
 </script>
 <style>
     #div_clock {
@@ -4096,16 +4089,13 @@
         justify-content: center;
         align-items: center;
     }
-    /* .div_num {
-        margin: 0 2px 2px 0;
-    } */
     svg {
         width: calc(95vw/12);
         height: auto;
     }
     .pointer {
         transform-origin: center;
-        transition: all 1s linear;
+        transition: all 0.5s linear;
     }
 </style>
 
