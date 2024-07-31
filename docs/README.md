@@ -4,7 +4,7 @@
 
 ## Introduction
 I saw this concept of a clock made out of multiple smaller analogue clocks which are then forming the digital number somewhere on YouTube or TikTok. I thought about it for a short moment on how to do this with HTML, CSS and JS, as minimal as possible. Then it came to my mind that I once saw a video which showed that you can animate SVG code with CSS. So no time to lose, I started coding and came up with this kinda amazing clock.
-You can just use at as the [website](https://rolanddaum.github.io/Digital-Analog-Clock/) or via Wallpaper Engine on steam [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3030466464).
+You can just use it as the [website](https://rolanddaum.github.io/Digital-Analog-Clock/) or via Wallpaper Engine on Steam [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3030466464).
 
 ## Functionality
 The entire thing is just one big grouped SVG file if you want so. The SVG files can be found inside the projects [/files](/files/) folder. There are 6x digits (Groups) in total starting to count at 0.
